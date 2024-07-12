@@ -34,30 +34,36 @@ const ListMusic = ({ genre, artistName }) => {
 
   const handleToggleLike = (songId) => {
     dispatch(toggleLikeSong(songId));
-   
   };
+
+  // Limit to 4 songs per genre
+  const limitedMusic = music.slice(0, 4);
 
   return (
     <div id={genre}>
       <h2>{genre.charAt(0).toUpperCase() + genre.slice(1)}</h2>
       <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
-        {music.map((song) => (
+        {limitedMusic.map((song) => (
           <div key={song.id} className="col text-center">
-            <img className="img-fluid" src={song.album.cover_medium} alt="track" onClick={() => handleSelectSong(song)} />
+            <img 
+              className="img-fluid" 
+              src={song.album.cover_medium} 
+              alt="track" 
+              onClick={() => handleSelectSong(song)} 
+            />
             <p>
               Track: "{song.title}"<br />
               Artist: {song.artist.name}
             </p>
             <div className="like-button">
-  <button 
-    className={`btn ${likedSongs[song.id] ? 'unlike' : 'like'}`} 
-    onClick={() => handleToggleLike(song.id)}
-  >
-    {likedSongs[song.id] ? 'Unlike' : 'Like'}
-  </button>
-</div>
-</div>
-
+              <button 
+                className={`btn ${likedSongs[song.id] ? 'unlike' : 'like'}`} 
+                onClick={() => handleToggleLike(song.id)}
+              >
+                {likedSongs[song.id] ? 'Unlike' : 'Like'}
+              </button>
+            </div>
+          </div>
         ))}
       </div>
     </div>
