@@ -3,7 +3,7 @@ const initialState = {
     rock: [],
     pop: [],
     hiphop: [],
-    search: [], // Add search genre
+    search: [],
   },
   currentSong: null,
   likedSongs: {},

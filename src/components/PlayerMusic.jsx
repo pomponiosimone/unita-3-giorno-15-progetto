@@ -8,18 +8,22 @@ import repeat from '../assets/playerbuttons/repeat.png';
 
 const Player = () => {
   const currentSong = useSelector((state) => state.currentSong);
-
+  console.log('Current Song:', currentSong);  
   return (
     <div className="container-fluid fixed-bottom bg-container pt-1">
       <div className="row h-100">
         <div className="col-lg-10 offset-lg-2">
           <div className="row h-100 flex-column justify-content-center align-items-center">
-            {currentSong && (
-              <div className="current-song-details">
-                <p>{currentSong.title} by {currentSong.artist.name}</p>
-                <img src={currentSong.album.cover_medium} alt="album cover" />
-              </div>
-            )}
+          {currentSong ? (
+  <div className="current-song-details">
+    <p className="text-light">{currentSong.title} by {currentSong.artist.name}</p>
+    <img src={currentSong.album.cover_medium} alt="album cover" />
+  </div>
+) : (
+  <p className="text-light">No song selected</p>
+)}
+              
+            
             <div className="col-6 col-md-4 playerControls">
               <div className="d-flex">
                 <a href="#">

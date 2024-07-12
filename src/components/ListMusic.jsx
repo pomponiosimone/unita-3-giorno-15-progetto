@@ -29,10 +29,12 @@ const ListMusic = ({ genre, artistName }) => {
 
   const handleSelectSong = (song) => {
     dispatch(setCurrentSong(song));
+    console.log('Selected Song:', song);
   };
 
   const handleToggleLike = (songId) => {
     dispatch(toggleLikeSong(songId));
+   
   };
 
   return (
