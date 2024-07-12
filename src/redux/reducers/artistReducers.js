@@ -1,16 +1,34 @@
 const initialState = {
-  artistName: "",
-  music: {},
+  music: {
+    rock: [],
+    pop: [],
+    hiphop: [],
+    search: [], // Add search genre
+  },
+  currentSong: null,
+  likedSongs: {},
 };
 
 const artistReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "SET_ARTIST_NAME":
-      return { ...state, artistName: action.payload };
     case "SET_MUSIC":
       return {
         ...state,
-        music: { ...state.music, [action.genre]: action.payload },
+        music: {
+          ...state.music,
+          [action.genre]: action.payload,
+        },
+      };
+    case "SET_CURRENT_SONG":
+      return { ...state, currentSong: action.payload };
+    case "TOGGLE_LIKE_SONG":
+      const { payload: songId } = action;
+      return {
+        ...state,
+        likedSongs: {
+          ...state.likedSongs,
+          [songId]: !state.likedSongs[songId],
+        },
       };
     default:
       return state;

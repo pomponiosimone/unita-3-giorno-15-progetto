@@ -187,3 +187,36 @@ font-weight: bold;
 margin-top: 50px;
 text-align: center;
 }
+
+
+.like-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+ 
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn.like {
+  background-color: #4CAF50; 
+  color: white;
+}
+
+.btn.like:hover {
+  background-color: #45a049;
+}
+
+.btn.unlike {
+  background-color: #f44336; 
+  color: white;
+}
+
+.btn.unlike:hover {
+  background-color: #e53935; 
+}
