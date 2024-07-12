@@ -178,3 +178,12 @@ ul {
 #rock:last-of-type {
   margin-bottom: 7rem;
 }
+.artist {
+ 
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+font-size:60px;
+font-weight: bold;
+margin-top: 50px;
+text-align: center;
+}
